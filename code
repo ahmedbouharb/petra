@@ -1,22 +1,25 @@
 import numpy as np
 from scipy.optimize import fsolve
-offre_de_base= float(input("Veuillez saisir la quantité de l'offre de base : "))
-coefficient_de_offre= float(input("Veuillez saisir le coefficient de l'offre : "))
-demande_de_base= float(input("Veuillez saisir la quantité de la demande de base : "))
-coefficient_de_demande1= float(input("Veuillez saisir le coefficient de la demande des investisseurs averses au risque : "))
-coefficient_de_demande2= float(input("Veuillez saisir le coefficient de la demande des investisseurs amateurs de risque : "))
-teta= float(input("Veuillez saisir la proportion des investisseurs averses aux risque (entre 0 et 1) : "))
-sensibilité_risque1= float(input("Veuillez saisir la sensibilité au risque des investisseurs averses au risque : "))
-sensibilité_risque2= float(input(
-    "Veuillez saisir la sensibilité au risque des investisseurs amateurs de risque : "))
-prime_de_risque= float(input("Veuillez saisir la prime de risque : "))
-prix_precedent= float(input("Veuillez saisir le prix à t-1 "))
+
+offre_de_base = float(input("Please enter the base supply quantity: "))
+coefficient_de_offre = float(input("Please enter the supply coefficient: "))
+demande_de_base = float(input("Please enter the base demand quantity: "))
+coefficient_de_demande1 = float(input("Please enter the demand coefficient for risk-averse investors: "))
+coefficient_de_demande2 = float(input("Please enter the demand coefficient for risk-seeking investors: "))
+teta = float(input("Please enter the proportion of risk-averse investors (between 0 and 1): "))
+sensibilité_risque1 = float(input("Please enter the risk sensitivity of risk-averse investors: "))
+sensibilité_risque2 = float(input("Please enter the risk sensitivity of risk-seeking investors: "))
+prime_de_risque = float(input("Please enter the risk premium: "))
+prix_precedent = float(input("Please enter the price at t-1: "))
+
 def equilibre(P):
-    offre= coefficient_de_offre*P + offre_de_base
-    demande_averse= demande_de_base - coefficient_de_demande1*P + sensibilité_risque1*prime_de_risque
-    demande_amateur= demande_de_base - coefficient_de_demande2*P + sensibilité_risque2*prime_de_risque
-    demande_totale= demande_averse*teta + demande_amateur*(1-teta)
-    return offre-demande_totale
-P_solution= fsolve(equilibre,prix_precedent)[0]
+    offre = coefficient_de_offre * P + offre_de_base
+    demande_averse = demande_de_base - coefficient_de_demande1 * P + sensibilité_risque1 * prime_de_risque
+    demande_amateur = demande_de_base - coefficient_de_demande2 * P + sensibilité_risque2 * prime_de_risque
+    demande_totale = demande_averse * teta + demande_amateur * (1 - teta)
+    return offre - demande_totale
+
+P_solution = fsolve(equilibre, prix_precedent)[0]
 P_solution = max(P_solution, 0)
-print("Le prix d'équilibre= ", P_solution)
+
+print("The equilibrium price = ", P_solution)
