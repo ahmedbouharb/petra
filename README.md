@@ -10,6 +10,8 @@ Le projet inclut plusieurs scénarios prédéfinis :
 -Marché baissier : Prime de risque élevée.
 -Marché haussier : Prime de risque faible.
 -Choc de préférences : Variation de θ.
+
+
 ENGLISH
 A Python-based economic model simulating equilibrium price formation in a financial market with two types of investors: risk-averse and risk-seeking agents.
 The project illustrates how heterogeneous risk preferences influence market equilibrium and how changes in the risk premium affect price dynamics.
