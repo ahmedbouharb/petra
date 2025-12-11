@@ -10,3 +10,31 @@ Le projet inclut plusieurs scénarios prédéfinis :
 -Marché baissier : Prime de risque élevée.
 -Marché haussier : Prime de risque faible.
 -Choc de préférences : Variation de θ.
+ENGLISH
+A Python-based economic model simulating equilibrium price formation in a financial market with two types of investors: risk-averse and risk-seeking agents.
+The project illustrates how heterogeneous risk preferences influence market equilibrium and how changes in the risk premium affect price dynamics.
+
+The model captures the interaction between supply and demand in a market where agents react differently to perceived risk. It provides a framework to analyze how variations in investor composition or market conditions drive equilibrium price adjustments.
+
+Variables
+
+P: Asset price
+
+R: Risk premium
+
+θ: Proportion of risk-averse investors
+
+σ₁, σ₂: Risk sensitivities (σ₁ negative for risk-averse agents, σ₂ positive for risk-seeking agents)
+
+Included Scenarios
+
+The project implements several predefined simulation scenarios:
+
+Bear Market
+Characterized by a high risk premium, reflecting increased uncertainty and heightened aversion to risk.
+
+Bull Market
+Corresponds to a low risk premium, indicating favorable market expectations.
+
+Preference Shock
+A sudden change in the proportion θ of risk-averse investors, allowing the analysis of shifts in market sentiment or structural changes in investor composition.
